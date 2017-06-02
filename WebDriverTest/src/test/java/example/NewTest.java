@@ -32,13 +32,7 @@ public class NewTest {
       
       System.out.println("Page title is: " + driver.getTitle());	
       System.out.println("Total time for page load: " + totalTime);
-      
-      
-      //WebElement element = driver.findElement(By.name("q"));
-      //driver.findElement(By.partialLinkText("dienstleistungen")).click();
-      
-      //element.sendKeys("Guru99");					
-      //element.submit();   
+        
       
       By css = By.cssSelector(".item[href*='testmanagement']");
       WebElement element = driver.findElement(css);
