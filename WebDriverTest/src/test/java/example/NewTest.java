@@ -1,12 +1,15 @@
 package example;
 
 import org.testng.annotations.Test;
+
 import org.testng.Assert;	
 import org.testng.annotations.Test;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.AfterTest;
 
 import java.io.File;
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
@@ -14,14 +17,21 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.phantomjs.PhantomJSDriver;
+import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.remote.RemoteWebDriver;
 
 public class NewTest {
   @Test
-  public void f() {
+  public void f() throws MalformedURLException {
 	  
-	  File file = new File("/Users/hgrob/Documents/workspace/phantomjs-2.1.1-macosx/bin/phantomjs");				
-      System.setProperty("phantomjs.binary.path", file.getAbsolutePath());		
-      WebDriver driver = new PhantomJSDriver();
+	  //File file = new File("/Users/hgrob/Documents/workspace/phantomjs-2.1.1-macosx/bin/phantomjs");				
+      //System.setProperty("phantomjs.binary.path", file.getAbsolutePath());		
+      //WebDriver driver = new PhantomJSDriver();
+      
+      WebDriver driver = new RemoteWebDriver(
+    		    new URL("http://127.0.0.1:32401"),
+    		    DesiredCapabilities.phantomjs());
+
       
       driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
       
@@ -40,9 +50,6 @@ public class NewTest {
       ((JavascriptExecutor)driver).executeScript("arguments[0].click();" , element);
       
       //driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
-      
-      //driver.findElement(By.linkText("/dienstleistungen"));
-
       
       driver.findElement(By.partialLinkText("Sie zum Download"));
       finish = System.currentTimeMillis();
