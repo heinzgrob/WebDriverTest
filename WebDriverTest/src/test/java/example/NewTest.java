@@ -1,13 +1,5 @@
 package example;
 
-import org.testng.annotations.Test;
-
-import org.testng.Assert;	
-import org.testng.annotations.Test;
-import org.testng.annotations.BeforeTest;
-import org.testng.annotations.AfterTest;
-
-import java.io.File;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.concurrent.TimeUnit;
@@ -16,9 +8,11 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.phantomjs.PhantomJSDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
+import org.testng.annotations.AfterTest;
+import org.testng.annotations.BeforeTest;
+import org.testng.annotations.Test;
 
 public class NewTest {
   @Test
@@ -29,7 +23,7 @@ public class NewTest {
       //WebDriver driver = new PhantomJSDriver();
       
       WebDriver driver = new RemoteWebDriver(
-    		    new URL("http://127.0.0.1:32401"),
+    		    new URL("http://0.0.0.0:32401"),
     		    DesiredCapabilities.phantomjs());
 
       
