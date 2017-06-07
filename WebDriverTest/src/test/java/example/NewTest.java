@@ -23,7 +23,7 @@ public class NewTest {
       //WebDriver driver = new PhantomJSDriver();
       
       WebDriver driver = new RemoteWebDriver(
-    		    new URL("http://0.0.0.0:32401"),
+    		    new URL("http://ftheinz:32401"),
     		    DesiredCapabilities.phantomjs());
 
       
