@@ -16,7 +16,7 @@ import org.testng.annotations.Test;
 
 public class NewTest {
   @Test
-  public void f() throws MalformedURLException {
+  public void firmtecWebsite() throws MalformedURLException {
 	  
 	  //File file = new File("/Users/hgrob/Documents/workspace/phantomjs-2.1.1-macosx/bin/phantomjs");				
       //System.setProperty("phantomjs.binary.path", file.getAbsolutePath());		
